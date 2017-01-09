@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dynamic Rectangle</title>
+        <script src="http://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+        <style>
+            #playbox {width:500px;height: 500px;background:#abc;position:relative;}
+            #box {width:50px;height:50px;background:#fff;position:absolute;top:50px;left:50px;}
+        </style>
+    </head>
+    <body>
+        <div id="playbox">
+            <div id="box" dir="e"></div>
+            <button type="button" id="btn">Start</button>
+        </div>
+        <script>
+            function play() {
+                var n = 100; //offset distance
+                var t = 0.5; //timeout
+                var $box = $('#box');
+                var dir = $box.attr('dir') || 'e';
+                switch(dir) {
+                    case 'e':
+                        $box.animate({left: '+=' + n + 'px'});
+                        dir = 's';
+                        break;
+                    case 's':
+                        $box.animate({top: '+=' + n + 'px'});
+                        dir = 'w';
+                        break;
+                    case 'w':
+                        $box.animate({left: '-=' + n + 'px'});
+                        dir = 'n';
+                        break;
+                    case 'n':
+                        $box.animate({top: '-=' + n + 'px'});
+                        dir = 'e';
+                        break;
+                }
+                $box.attr('dir', dir);
+                window.timer = setTimeout(function () {
+                    play();
+                },t*1000);
+            }
+            
+            $(document).ready(function (e) {
+                $('#btn').click(function () {
+                    if($(this).html() === 'Start') {
+                        $(this).html('Stop');
+                        play();
+                    } else {
+                        clearTimeout(timer);
+                        $(this).html('Start');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
