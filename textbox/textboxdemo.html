@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        .login-section {
+            width:360px;
+        }
+        [textbox-load] {
+            position: relative;
+            display: inline-block;
+            height:30px;
+            line-height:30px;
+            margin: 15px 0px;
+            width: 100%;
+        }
+        [textbox-load] label[for] {
+            position:absolute;
+            color: #162d3d;
+            left: 9px;
+            height: 35px;
+            line-height: 35px;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            -o-transition: all .3s;
+            transition: all .3s;
+            font-size: 20px;
+        }
+        [textbox-load] input{
+            height: 35px;
+            font-size:24px;
+            padding: 2px 0px;
+            padding-left:9px;
+            width:100%;
+            border:none;
+            border-bottom:2px solid #ccc;
+            outline:none;
+            -webkit-transition: border-bottom .3s ease-in-out;
+            -moz-transition: border-bottom .3s ease-in-out;
+            -ms-transition: border-bottom .3s ease-in-out;
+            -o-transition: border-bottom .3s ease-in-out;
+            transition: border-bottom .3s ease-in-out;
+        }
+        .focus label[for]{
+            color: red;
+            font-size: 14px;
+            line-height:16px;
+            height:16px;
+            top: -16px;
+        }
+        .focus input{
+            color: #000;
+            border-bottom: 2px solid #0181fb;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-section">
+        <div data-textbox>
+            <label for="username">Username</label>
+            <input type="text" id="username">
+        </div>
+        <div data-textbox>
+            <label for="password">Password</label>
+            <input type="text" id="password">
+        </div>
+    </div>
+    <script src="textbox.js"></script>
+</body>
+</html>
